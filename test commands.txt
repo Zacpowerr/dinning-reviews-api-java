@@ -1,0 +1,14 @@
+# 1. Basic user with all fields
+Invoke-WebRequest -Uri http://localhost:8080/users -Method POST -Headers @{ "Content-Type" = "application/json" } -Body '{"userName":"alice","city":"Denver","state":"CO","zipcode":"80202","hasPeanutAllergy":false,"hasEggAllergy":true,"hasDairyAllergy":false}'
+
+# 2. User with only required fields
+Invoke-WebRequest -Uri http://localhost:8080/users -Method POST -Headers @{ "Content-Type" = "application/json" } -Body '{"userName":"bob","city":"Boulder","state":"CO","zipcode":"80301","hasPeanutAllergy":false,"hasEggAllergy":false,"hasDairyAllergy":false}'
+
+# 3. User with all allergies true
+Invoke-WebRequest -Uri http://localhost:8080/users -Method POST -Headers @{ "Content-Type" = "application/json" } -Body '{"userName":"carol","city":"Aurora","state":"CO","zipcode":"80012","hasPeanutAllergy":true,"hasEggAllergy":true,"hasDairyAllergy":true}'
+
+# 4. User with only peanut allergy
+Invoke-WebRequest -Uri http://localhost:8080/users -Method POST -Headers @{ "Content-Type" = "application/json" } -Body '{"userName":"dave","city":"Lakewood","state":"CO","zipcode":"80226","hasPeanutAllergy":true,"hasEggAllergy":false,"hasDairyAllergy":false}'
+
+# 5. User with only dairy allergy
+Invoke-WebRequest -Uri http://localhost:8080/users -Method POST -Headers @{ "Content-Type" = "application/json" } -Body '{"userName":"eve","city":"Golden","state":"CO","zipcode":"80401","hasPeanutAllergy":false,"hasEggAllergy":false,"hasDairyAllergy":true}'

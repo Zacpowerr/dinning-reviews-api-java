@@ -1,0 +1,99 @@
+2025-06-11 20:38:22.646780-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "drop table if exists [*]user cascade "; expected "identifier"; SQL statement:
+drop table if exists user cascade  [42001-232]
+2025-06-11 20:38:22.663810-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table [*]user (has_dairy_allergy boolean, has_egg_allergy boolean, has_peanut_allergy boolean, id integer not null, city varchar(255), state varchar(255), user_name varchar(255) unique, zipcode varchar(255), primary key (id))"; expected "identifier"; SQL statement:
+create table user (has_dairy_allergy boolean, has_egg_allergy boolean, has_peanut_allergy boolean, id integer not null, city varchar(255), state varchar(255), user_name varchar(255) unique, zipcode varchar(255), primary key (id)) [42001-232]
+2025-06-11 20:38:23.413390-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "drop table if exists [*]user cascade "; expected "identifier"; SQL statement:
+drop table if exists user cascade  [42001-232]
+2025-06-11 20:40:37.727084-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "drop table if exists [*]user cascade "; expected "identifier"; SQL statement:
+drop table if exists user cascade  [42001-232]
+2025-06-11 20:40:37.757377-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table [*]user (has_dairy_allergy boolean, has_egg_allergy boolean, has_peanut_allergy boolean, id integer not null, city varchar(255), state varchar(255), user_name varchar(255) unique, zipcode varchar(255), primary key (id))"; expected "identifier"; SQL statement:
+create table user (has_dairy_allergy boolean, has_egg_allergy boolean, has_peanut_allergy boolean, id integer not null, city varchar(255), state varchar(255), user_name varchar(255) unique, zipcode varchar(255), primary key (id)) [42001-232]
+2025-06-11 20:40:38.417008-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "drop table if exists [*]user cascade "; expected "identifier"; SQL statement:
+drop table if exists user cascade  [42001-232]
+2025-06-11 20:41:37.722576-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "drop table if exists [*]user cascade "; expected "identifier"; SQL statement:
+drop table if exists user cascade  [42001-232]
+2025-06-11 20:41:37.755573-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table [*]user (has_dairy_allergy boolean, has_egg_allergy boolean, has_peanut_allergy boolean, id integer not null, city varchar(255), state varchar(255), user_name varchar(255) unique, zipcode varchar(255), primary key (id))"; expected "identifier"; SQL statement:
+create table user (has_dairy_allergy boolean, has_egg_allergy boolean, has_peanut_allergy boolean, id integer not null, city varchar(255), state varchar(255), user_name varchar(255) unique, zipcode varchar(255), primary key (id)) [42001-232]
+2025-06-11 20:41:38.438525-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "drop table if exists [*]user cascade "; expected "identifier"; SQL statement:
+drop table if exists user cascade  [42001-232]
+2025-06-11 20:43:48.052085-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "drop table if exists [*]user cascade "; expected "identifier"; SQL statement:
+drop table if exists user cascade  [42001-232]
+2025-06-11 20:43:48.084041-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table [*]user (has_dairy_allergy boolean, has_egg_allergy boolean, has_peanut_allergy boolean, id integer not null, city varchar(255), state varchar(255), user_name varchar(255) unique, zipcode varchar(255), primary key (id))"; expected "identifier"; SQL statement:
+create table user (has_dairy_allergy boolean, has_egg_allergy boolean, has_peanut_allergy boolean, id integer not null, city varchar(255), state varchar(255), user_name varchar(255) unique, zipcode varchar(255), primary key (id)) [42001-232]
+2025-06-11 20:43:48.759321-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "drop table if exists [*]user cascade "; expected "identifier"; SQL statement:
+drop table if exists user cascade  [42001-232]
+2025-06-11 20:49:00.600355-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "drop table if exists [*]user cascade "; expected "identifier"; SQL statement:
+drop table if exists user cascade  [42001-232]
+2025-06-11 20:49:00.633895-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table [*]user (has_dairy_allergy boolean, has_egg_allergy boolean, has_peanut_allergy boolean, id integer not null, city varchar(255), state varchar(255), user_name varchar(255) unique, zipcode varchar(255), primary key (id))"; expected "identifier"; SQL statement:
+create table user (has_dairy_allergy boolean, has_egg_allergy boolean, has_peanut_allergy boolean, id integer not null, city varchar(255), state varchar(255), user_name varchar(255) unique, zipcode varchar(255), primary key (id)) [42001-232]
+2025-06-11 20:49:01.329489-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "drop table if exists [*]user cascade "; expected "identifier"; SQL statement:
+drop table if exists user cascade  [42001-232]
+2025-06-11 20:51:10.224885-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "drop table if exists [*]user cascade "; expected "identifier"; SQL statement:
+drop table if exists user cascade  [42001-232]
+2025-06-11 20:51:10.252998-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table [*]user (has_dairy_allergy boolean, has_egg_allergy boolean, has_peanut_allergy boolean, id integer not null, city varchar(255), state varchar(255), user_name varchar(255) unique, zipcode varchar(255), primary key (id))"; expected "identifier"; SQL statement:
+create table user (has_dairy_allergy boolean, has_egg_allergy boolean, has_peanut_allergy boolean, id integer not null, city varchar(255), state varchar(255), user_name varchar(255) unique, zipcode varchar(255), primary key (id)) [42001-232]
+2025-06-11 20:51:10.957119-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "drop table if exists [*]user cascade "; expected "identifier"; SQL statement:
+drop table if exists user cascade  [42001-232]
+2025-06-11 20:51:36.117477-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "drop table if exists [*]user cascade "; expected "identifier"; SQL statement:
+drop table if exists user cascade  [42001-232]
+2025-06-11 20:51:36.146015-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table [*]user (has_dairy_allergy boolean, has_egg_allergy boolean, has_peanut_allergy boolean, id integer not null, city varchar(255), state varchar(255), user_name varchar(255) unique, zipcode varchar(255), primary key (id))"; expected "identifier"; SQL statement:
+create table user (has_dairy_allergy boolean, has_egg_allergy boolean, has_peanut_allergy boolean, id integer not null, city varchar(255), state varchar(255), user_name varchar(255) unique, zipcode varchar(255), primary key (id)) [42001-232]
+2025-06-11 20:51:36.777778-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "drop table if exists [*]user cascade "; expected "identifier"; SQL statement:
+drop table if exists user cascade  [42001-232]
+2025-06-11 20:52:02.618105-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "drop table if exists [*]user cascade "; expected "identifier"; SQL statement:
+drop table if exists user cascade  [42001-232]
+2025-06-11 20:52:02.646995-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table [*]user (has_dairy_allergy boolean, has_egg_allergy boolean, has_peanut_allergy boolean, id integer not null, city varchar(255), state varchar(255), user_name varchar(255) unique, zipcode varchar(255), primary key (id))"; expected "identifier"; SQL statement:
+create table user (has_dairy_allergy boolean, has_egg_allergy boolean, has_peanut_allergy boolean, id integer not null, city varchar(255), state varchar(255), user_name varchar(255) unique, zipcode varchar(255), primary key (id)) [42001-232]
+2025-06-11 20:54:59.864882-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "drop table if exists [*]user cascade "; expected "identifier"; SQL statement:
+drop table if exists user cascade  [42001-232]
+2025-06-11 20:54:59.889866-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table [*]user (has_dairy_allergy boolean, has_egg_allergy boolean, has_peanut_allergy boolean, id integer not null, city varchar(255), state varchar(255), user_name varchar(255) unique, zipcode varchar(255), primary key (id))"; expected "identifier"; SQL statement:
+create table user (has_dairy_allergy boolean, has_egg_allergy boolean, has_peanut_allergy boolean, id integer not null, city varchar(255), state varchar(255), user_name varchar(255) unique, zipcode varchar(255), primary key (id)) [42001-232]
+2025-06-11 20:55:03.968649-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select u1_0.id,u1_0.city,u1_0.has_dairy_allergy,u1_0.has_egg_allergy,u1_0.has_peanut_allergy,u1_0.state,u1_0.user_name,u1_0.zipcode from [*]user u1_0"; expected "identifier"; SQL statement:
+select u1_0.id,u1_0.city,u1_0.has_dairy_allergy,u1_0.has_egg_allergy,u1_0.has_peanut_allergy,u1_0.state,u1_0.user_name,u1_0.zipcode from user u1_0 [42001-232]
+2025-06-11 20:56:00.850437-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "drop table if exists [*]user cascade "; expected "identifier"; SQL statement:
+drop table if exists user cascade  [42001-232]
+2025-06-11 20:56:00.879773-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table [*]user (has_dairy_allergy boolean, has_egg_allergy boolean, has_peanut_allergy boolean, id integer not null, city varchar(255), state varchar(255), user_name varchar(255) unique, zipcode varchar(255), primary key (id))"; expected "identifier"; SQL statement:
+create table user (has_dairy_allergy boolean, has_egg_allergy boolean, has_peanut_allergy boolean, id integer not null, city varchar(255), state varchar(255), user_name varchar(255) unique, zipcode varchar(255), primary key (id)) [42001-232]
+2025-06-11 20:56:07.074205-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select u1_0.id,u1_0.city,u1_0.has_dairy_allergy,u1_0.has_egg_allergy,u1_0.has_peanut_allergy,u1_0.state,u1_0.user_name,u1_0.zipcode from [*]user u1_0"; expected "identifier"; SQL statement:
+select u1_0.id,u1_0.city,u1_0.has_dairy_allergy,u1_0.has_egg_allergy,u1_0.has_peanut_allergy,u1_0.state,u1_0.user_name,u1_0.zipcode from user u1_0 [42001-232]
+2025-06-11 20:56:38.189804-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "drop table if exists [*]user cascade "; expected "identifier"; SQL statement:
+drop table if exists user cascade  [42001-232]
+2025-06-11 20:56:38.220660-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table [*]user (has_dairy_allergy boolean, has_egg_allergy boolean, has_peanut_allergy boolean, id integer not null, city varchar(255), state varchar(255), user_name varchar(255) unique, zipcode varchar(255), primary key (id))"; expected "identifier"; SQL statement:
+create table user (has_dairy_allergy boolean, has_egg_allergy boolean, has_peanut_allergy boolean, id integer not null, city varchar(255), state varchar(255), user_name varchar(255) unique, zipcode varchar(255), primary key (id)) [42001-232]
+2025-06-11 20:56:44.716889-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select u1_0.id,u1_0.city,u1_0.has_dairy_allergy,u1_0.has_egg_allergy,u1_0.has_peanut_allergy,u1_0.state,u1_0.user_name,u1_0.zipcode from [*]user u1_0"; expected "identifier"; SQL statement:
+select u1_0.id,u1_0.city,u1_0.has_dairy_allergy,u1_0.has_egg_allergy,u1_0.has_peanut_allergy,u1_0.state,u1_0.user_name,u1_0.zipcode from user u1_0 [42001-232]
+2025-06-11 20:58:23.611523-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "drop table if exists [*]user cascade "; expected "identifier"; SQL statement:
+drop table if exists user cascade  [42001-232]
