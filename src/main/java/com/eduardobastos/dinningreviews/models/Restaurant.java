@@ -1,5 +1,9 @@
 package com.eduardobastos.dinningreviews.models;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,7 +21,7 @@ public class Restaurant {
     private String name;
 
     @Column(name = "overallScore")
-    private Float overallScore;
+    private Double overallScore;
 
     @Column(name = "peanutScore")
     private Double peanutScore;
@@ -47,11 +51,11 @@ public class Restaurant {
         this.name = name;
     }
 
-    public Float getOverallScore() {
+    public Double getOverallScore() {
         return overallScore;
     }
 
-    public void setOverallScore(Float overAllScore) {
+    public void setOverallScore(Double overAllScore) {
         this.overallScore = overAllScore;
     }
 
@@ -85,5 +89,52 @@ public class Restaurant {
 
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
+    }
+
+    public void recalculateScores(List<DinningReview> reviews) {
+        if (reviews.isEmpty()) {
+            return;
+        }
+
+        Map<String, double[]> scoreMap = new HashMap<>();
+        calculateScore(reviews, "egg", scoreMap);
+        calculateScore(reviews, "dairy", scoreMap);
+        calculateScore(reviews, "peanut", scoreMap);
+
+        if (scoreMap.containsKey("egg") && scoreMap.get("egg")[1] > 0) {
+            this.eggScore = scoreMap.get("egg")[0] / scoreMap.get("egg")[1];
+        }
+        if (scoreMap.containsKey("dairy") && scoreMap.get("dairy")[1] > 0) {
+            this.dairyScore = scoreMap.get("dairy")[0] / scoreMap.get("dairy")[1];
+        }
+        if (scoreMap.containsKey("peanut") && scoreMap.get("peanut")[1] > 0) {
+            this.peanutScore = scoreMap.get("peanut")[0] / scoreMap.get("peanut")[1];
+        }
+
+        this.overallScore = scoreMap.get("egg")[0] + scoreMap.get("dairy")[0] + scoreMap.get("peanut")[0];
+    }
+
+    private void calculateScore(List<DinningReview> reviews, String allergen, Map<String, double[]> map) {
+        double sum = 0.0;
+        int count = 0;
+        for (DinningReview review : reviews) {
+            Double score = null;
+            switch (allergen) {
+                case "egg":
+                    score = review.getEggScore();
+                    break;
+                case "dairy":
+                    score = review.getDiaryScore();
+                    break;
+                case "peanut":
+                    score = review.getPeanutScore();
+                    break;
+            }
+            if (score != null && !score.isNaN()) {
+                sum += score;
+                count++;
+            }
+        }
+        map.put(allergen, new double[]{sum, count});
     }
 }
