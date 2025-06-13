@@ -19,13 +19,13 @@ public class DinningReview {
     private Integer restaurantId;
 
     @Column(name = "peanut_score")
-    private Float peanutScore;
+    private Double peanutScore;
 
     @Column(name = "egg_score")
-    private Float eggScore;
+    private Double eggScore;
 
     @Column(name = "diary_score")
-    private Float diaryScore;
+    private Double diaryScore;
 
     @Column(name = "details")
     private String details;
@@ -57,27 +57,27 @@ public class DinningReview {
         this.restaurantId = restaurantId;
     }
 
-    public Float getPeanutScore() {
+    public Double getPeanutScore() {
         return peanutScore;
     }
 
-    public void setPeanutScore(Float peanutScore) {
+    public void setPeanutScore(Double peanutScore) {
         this.peanutScore = peanutScore;
     }
 
-    public Float getEggScore() {
+    public Double getEggScore() {
         return eggScore;
     }
 
-    public void setEggScore(Float eggScore) {
+    public void setEggScore(Double eggScore) {
         this.eggScore = eggScore;
     }
 
-    public Float getDiaryScore() {
+    public Double getDiaryScore() {
         return diaryScore;
     }
 
-    public void setDiaryScore(Float diaryScore) {
+    public void setDiaryScore(Double diaryScore) {
         this.diaryScore = diaryScore;
     }
 
