@@ -1,14 +1,55 @@
-# 1. Basic user with all fields
-Invoke-WebRequest -Uri http://localhost:8080/users -Method POST -Headers @{ "Content-Type" = "application/json" } -Body '{"userName":"alice","city":"Denver","state":"CO","zipcode":"80202","hasPeanutAllergy":false,"hasEggAllergy":true,"hasDairyAllergy":false}'
+# USER ENDPOINTS
+# Create a new user
+curl -Method POST http://localhost:8080/users -Headers @{'Content-Type'='application/json'} -Body '{"userName":"john","city":"NYC","state":"NY","zipcode":"10001","hasDairyAllergy":true,"hasEggAllergy":false,"hasPeanutAllergy":true}'
 
-# 2. User with only required fields
-Invoke-WebRequest -Uri http://localhost:8080/users -Method POST -Headers @{ "Content-Type" = "application/json" } -Body '{"userName":"bob","city":"Boulder","state":"CO","zipcode":"80301","hasPeanutAllergy":false,"hasEggAllergy":false,"hasDairyAllergy":false}'
+# Get all users
+curl http://localhost:8080/users
 
-# 3. User with all allergies true
-Invoke-WebRequest -Uri http://localhost:8080/users -Method POST -Headers @{ "Content-Type" = "application/json" } -Body '{"userName":"carol","city":"Aurora","state":"CO","zipcode":"80012","hasPeanutAllergy":true,"hasEggAllergy":true,"hasDairyAllergy":true}'
+# Update a user
+curl -Method PUT http://localhost:8080/users/john -Headers @{'Content-Type'='application/json'} -Body '{"userName":"john","city":"Brooklyn","state":"NY","zipcode":"11201","hasDairyAllergy":false,"hasEggAllergy":true,"hasPeanutAllergy":false}'
 
-# 4. User with only peanut allergy
-Invoke-WebRequest -Uri http://localhost:8080/users -Method POST -Headers @{ "Content-Type" = "application/json" } -Body '{"userName":"dave","city":"Lakewood","state":"CO","zipcode":"80226","hasPeanutAllergy":true,"hasEggAllergy":false,"hasDairyAllergy":false}'
+# Delete a user
+curl -Method DELETE http://localhost:8080/users/john
 
-# 5. User with only dairy allergy
-Invoke-WebRequest -Uri http://localhost:8080/users -Method POST -Headers @{ "Content-Type" = "application/json" } -Body '{"userName":"eve","city":"Golden","state":"CO","zipcode":"80401","hasPeanutAllergy":false,"hasEggAllergy":false,"hasDairyAllergy":true}'
+# Search for a user
+curl http://localhost:8080/users/search?username=john
+
+# Get all reviews by a user
+curl http://localhost:8080/users/john/reviews
+
+
+# RESTAURANT ENDPOINTS
+# Create a new restaurant
+curl -Method POST http://localhost:8080/restaurants -Headers @{'Content-Type'='application/json'} -Body '{"name":"Pizza Place","zipCode":"10001"}'
+
+# Get all restaurants
+curl http://localhost:8080/restaurants
+
+# Update a restaurant
+curl -Method PUT http://localhost:8080/restaurants/1 -Headers @{'Content-Type'='application/json'} -Body '{"name":"Pizza Place","zipCode":"10001","dairyScore":5,"eggScore":4,"peanutScore":3}'
+
+# Delete a restaurant
+curl -Method DELETE http://localhost:8080/restaurants/1
+
+# Search for restaurants by zip code
+curl http://localhost:8080/restaurants/search?zipCode=10001&allergyType=
+
+# Get all reviews for a restaurant
+curl http://localhost:8080/restaurants/1/reviews
+
+
+# REVIEW ENDPOINTS
+# Create a new review
+curl -Method POST http://localhost:8080/reviews -Headers @{'Content-Type'='application/json'} -Body '{"userName":"john","restaurantId":1,"peanutScore":5,"eggScore":4,"dairyScore":3,"commentary":"Great!"}'
+
+# Get all reviews
+curl http://localhost:8080/reviews
+
+# Update a review
+curl -Method PUT http://localhost:8080/reviews/1 -Headers @{'Content-Type'='application/json'} -Body '{"id":1,"userName":"john","restaurantId":1,"peanutScore":4,"eggScore":3,"dairyScore":2,"commentary":"Updated review"}'
+
+# Delete a review
+curl -Method DELETE http://localhost:8080/reviews/1
+
+# Search for reviews by restaurant
+curl http://localhost:8080/reviews/search?restaurantId=1
