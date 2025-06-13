@@ -127,14 +127,14 @@ class RestaurantControllerTest {
         List<Restaurant> restaurants = Arrays.asList(new Restaurant());
         when(restaurantRepository.findAllByZipCode("12345")).thenReturn(restaurants);
 
-        List<Restaurant> result = controller.searchRestaurant("12345");
+        List<Restaurant> result = controller.searchRestaurant("12345", "");
 
         assertEquals(restaurants, result);
     }
 
     @Test
     void searchRestaurant_returnsEmptyList_whenZipCodeEmpty() {
-        List<Restaurant> result = controller.searchRestaurant("");
+        List<Restaurant> result = controller.searchRestaurant("", "");
         assertTrue(result.isEmpty());
     }
 
