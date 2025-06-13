@@ -160,4 +160,4 @@ This project is for portfolio and educational purposes.
 ## Contact
 
 Eduardo Bastos  
-[LinkedIn](https://www.linkedin.com/)
+[LinkedIn](https://www.linkedin.com/in/eduardokbastos/)
