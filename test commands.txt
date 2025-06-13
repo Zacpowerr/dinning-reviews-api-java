@@ -32,7 +32,7 @@ curl -Method PUT http://localhost:8080/restaurants/1 -Headers @{'Content-Type'='
 curl -Method DELETE http://localhost:8080/restaurants/1
 
 # Search for restaurants by zip code
-curl http://localhost:8080/restaurants/search?zipCode=10001&allergyType=
+curl "http://localhost:8080/restaurants/search?zipCode=10001&allergyType=egg"
 
 # Get all reviews for a restaurant
 curl http://localhost:8080/restaurants/1/reviews
