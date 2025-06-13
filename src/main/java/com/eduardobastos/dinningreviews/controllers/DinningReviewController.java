@@ -56,11 +56,7 @@ public class DinningReviewController {
                     HttpStatus.NOT_FOUND, "Restaurant does not exist"
             );
         }
-        Restaurant restaurant = restaurantOptional.get();
-        List<DinningReview> restaurantReviews = drr.findAllByRestaurantId(restaurant.getId());
-        restaurant.recalculateScores(restaurantReviews);
-        rr.save(restaurant);
-        review.setStatus(DinningReviewStatus.CREATED);
+        review.setStatus(DinningReviewStatus.PENDING);
         return drr.save(review);
     }
 
@@ -82,10 +78,7 @@ public class DinningReviewController {
                     HttpStatus.NOT_FOUND, "Restaurant does not exist"
             );
         }
-        Restaurant restaurant = restaurantOptional.get();
-        List<DinningReview> restaurantReviews = drr.findAllByRestaurantId(restaurant.getId());
-        restaurant.recalculateScores(restaurantReviews);
-        rr.save(restaurant);
+        review.setStatus(DinningReviewStatus.PENDING);
 
         return drr.save(review);
     }
