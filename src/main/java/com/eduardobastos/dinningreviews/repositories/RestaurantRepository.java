@@ -8,7 +8,7 @@ import com.eduardobastos.dinningreviews.models.Restaurant;
 
 public interface RestaurantRepository extends CrudRepository<Restaurant, Integer> {
 
-    public List<Restaurant> countByNameAndZipCode(String name, String zipcode);
+    public Integer countByNameAndZipCode(String name, String zipcode);
 
     public List<Restaurant> findAllByZipCode(String zipcode);
 }

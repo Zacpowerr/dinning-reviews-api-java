@@ -20,13 +20,13 @@ public class Restaurant {
     private Float overallScore;
 
     @Column(name = "peanutScore")
-    private Float peanutScore;
+    private Double peanutScore;
 
     @Column(name = "eggScore")
-    private Float eggScore;
+    private Double eggScore;
 
     @Column(name = "dairyScore")
-    private Float dairyScore;
+    private Double dairyScore;
 
     @Column(name = "zip_code")
     private String zipCode;
@@ -55,27 +55,27 @@ public class Restaurant {
         this.overallScore = overAllScore;
     }
 
-    public Float getPeanutScore() {
+    public Double getPeanutScore() {
         return peanutScore;
     }
 
-    public void setPeanutScore(Float peanutScore) {
+    public void setPeanutScore(Double peanutScore) {
         this.peanutScore = peanutScore;
     }
 
-    public Float getEggScore() {
+    public Double getEggScore() {
         return eggScore;
     }
 
-    public void setEggScore(Float eggScore) {
+    public void setEggScore(Double eggScore) {
         this.eggScore = eggScore;
     }
 
-    public Float getDairyScore() {
+    public Double getDairyScore() {
         return dairyScore;
     }
 
-    public void setDairyScore(Float dairyScore) {
+    public void setDairyScore(Double dairyScore) {
         this.dairyScore = dairyScore;
     }
 
