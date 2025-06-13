@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.eduardobastos.dinningreviews.models.DinningReview;
+import com.eduardobastos.dinningreviews.models.DinningReviewStatus;
 import com.eduardobastos.dinningreviews.models.Restaurant;
 import com.eduardobastos.dinningreviews.repositories.DinningReviewRepository;
 import com.eduardobastos.dinningreviews.repositories.RestaurantRepository;
@@ -56,9 +57,6 @@ public class RestaurantController {
                     "Restaurant does not exist");
         }
         Restaurant restaurantToUpdate = restaurantToUpdateOptional.get();
-        restaurantToUpdate.setDairyScore(restaurant.getDairyScore());
-        restaurantToUpdate.setEggScore(restaurant.getEggScore());
-        restaurantToUpdate.setPeanutScore(restaurant.getPeanutScore());
         restaurantToUpdate.setName(restaurant.getName());
         restaurantToUpdate.setZipCode(restaurant.getZipCode());
         Restaurant updatedRestaurant = rr.save(restaurantToUpdate);
@@ -76,9 +74,11 @@ public class RestaurantController {
         return restaurantToDelete;
     }
 
+    // TODO: Fix this endpoint
     @GetMapping("/search")
-    public List<Restaurant> searchRestaurant(@RequestParam String zipCode) {
-        if (!zipCode.isEmpty()) {
+    public List<Restaurant> searchRestaurant(@RequestParam String zipCode, @RequestParam String allergyType) {
+
+        if (!zipCode.isEmpty() && allergyType.isEmpty()) {
             return rr.findAllByZipCode(zipCode);
         }
         return new ArrayList<Restaurant>();
@@ -90,7 +90,7 @@ public class RestaurantController {
         if (!existingRestaurantOptional.isPresent()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Restaurant does not exist");
         }
-        return drr.findAllByRestaurantId(restaurantId);
+        return drr.findAllByRestaurantIdAndStatus(restaurantId, DinningReviewStatus.APPROVED);
     }
 
 }
