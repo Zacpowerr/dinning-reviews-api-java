@@ -1,6 +1,7 @@
 package com.eduardobastos.dinningreviews.controllers;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -74,10 +75,25 @@ public class RestaurantController {
         return restaurantToDelete;
     }
 
-    // TODO: Fix this endpoint
     @GetMapping("/search")
     public List<Restaurant> searchRestaurant(@RequestParam String zipCode, @RequestParam String allergyType) {
 
+        if (!zipCode.isEmpty() && !allergyType.isEmpty()) {
+            List<Restaurant> restaurants
+                    = rr.findAllByZipCode(zipCode);
+            switch (allergyType) {
+                case "egg":
+                    restaurants.sort(Comparator.comparingDouble((Restaurant r) -> r.getEggScore()).reversed());
+                    return restaurants;
+                case "diary":
+                    restaurants.sort(Comparator.comparingDouble((Restaurant r) -> r.getDairyScore()).reversed());
+                case "peanut":
+                    restaurants.sort(Comparator.comparingDouble((Restaurant r) -> r.getPeanutScore()).reversed());
+                default:
+                    throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Allergen is not tracked");
+            }
+
+        }
         if (!zipCode.isEmpty() && allergyType.isEmpty()) {
             return rr.findAllByZipCode(zipCode);
         }
