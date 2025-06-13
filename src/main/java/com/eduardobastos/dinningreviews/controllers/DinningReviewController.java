@@ -16,8 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.eduardobastos.dinningreviews.models.DinningReview;
+import com.eduardobastos.dinningreviews.models.DinningReviewStatus;
+import com.eduardobastos.dinningreviews.models.Restaurant;
 import com.eduardobastos.dinningreviews.models.User;
 import com.eduardobastos.dinningreviews.repositories.DinningReviewRepository;
+import com.eduardobastos.dinningreviews.repositories.RestaurantRepository;
 import com.eduardobastos.dinningreviews.repositories.UserRepository;
 
 @RestController
@@ -26,10 +29,12 @@ public class DinningReviewController {
 
     private DinningReviewRepository drr;
     private UserRepository ur;
+    private RestaurantRepository rr;
 
-    public DinningReviewController(DinningReviewRepository dinningReviewRepository, UserRepository userRepository) {
+    public DinningReviewController(DinningReviewRepository dinningReviewRepository, UserRepository userRepository, RestaurantRepository restaurantRepository) {
         this.drr = dinningReviewRepository;
         this.ur = userRepository;
+        this.rr = restaurantRepository;
     }
 
     @GetMapping("")
@@ -45,6 +50,17 @@ public class DinningReviewController {
                     HttpStatus.NOT_FOUND, "User does not exist"
             );
         }
+        Optional<Restaurant> restaurantOptional = rr.findById(review.getRestaurantId());
+        if (!restaurantOptional.isPresent()) {
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND, "Restaurant does not exist"
+            );
+        }
+        Restaurant restaurant = restaurantOptional.get();
+        List<DinningReview> restaurantReviews = drr.findAllByRestaurantId(restaurant.getId());
+        restaurant.recalculateScores(restaurantReviews);
+        rr.save(restaurant);
+        review.setStatus(DinningReviewStatus.CREATED);
         return drr.save(review);
     }
 
@@ -60,6 +76,17 @@ public class DinningReviewController {
                     HttpStatus.NOT_FOUND, "User does not exist"
             );
         }
+        Optional<Restaurant> restaurantOptional = rr.findById(review.getRestaurantId());
+        if (!restaurantOptional.isPresent()) {
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND, "Restaurant does not exist"
+            );
+        }
+        Restaurant restaurant = restaurantOptional.get();
+        List<DinningReview> restaurantReviews = drr.findAllByRestaurantId(restaurant.getId());
+        restaurant.recalculateScores(restaurantReviews);
+        rr.save(restaurant);
+
         return drr.save(review);
     }
 
