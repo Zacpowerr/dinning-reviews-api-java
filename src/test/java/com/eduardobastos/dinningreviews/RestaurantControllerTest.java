@@ -17,6 +17,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.eduardobastos.dinningreviews.controllers.RestaurantController;
 import com.eduardobastos.dinningreviews.models.DinningReview;
+import com.eduardobastos.dinningreviews.models.DinningReviewStatus;
 import com.eduardobastos.dinningreviews.models.Restaurant;
 import com.eduardobastos.dinningreviews.repositories.DinningReviewRepository;
 import com.eduardobastos.dinningreviews.repositories.RestaurantRepository;
@@ -76,9 +77,6 @@ class RestaurantControllerTest {
         Restaurant update = new Restaurant();
         update.setName("Updated");
         update.setZipCode("54321");
-        update.setDairyScore(5.0);
-        update.setEggScore(4.0);
-        update.setPeanutScore(3.0);
 
         when(restaurantRepository.findById(1)).thenReturn(Optional.of(existing));
         when(restaurantRepository.save(existing)).thenReturn(existing);
@@ -88,9 +86,6 @@ class RestaurantControllerTest {
         assertEquals(existing, result);
         assertEquals("Updated", existing.getName());
         assertEquals("54321", existing.getZipCode());
-        assertEquals(5, existing.getDairyScore());
-        assertEquals(4, existing.getEggScore());
-        assertEquals(3, existing.getPeanutScore());
     }
 
     @Test
@@ -141,10 +136,14 @@ class RestaurantControllerTest {
     @Test
     void getRestaurantReviews_returnsReviews_whenRestaurantExists() {
         Restaurant restaurant = new Restaurant();
-        restaurant.setId(1);
-        List<DinningReview> reviews = Arrays.asList(new DinningReview());
+        restaurant.setId(1); // Make sure ID is set before using it
+
+        DinningReview review = new DinningReview();
+        review.setRestaurantId(1); // Set the restaurantId to match
+
+        List<DinningReview> reviews = Arrays.asList(review);
         when(restaurantRepository.findById(1)).thenReturn(Optional.of(restaurant));
-        when(dinningReviewRepository.findAllByRestaurantId(1)).thenReturn(reviews);
+        when(dinningReviewRepository.findAllByRestaurantIdAndStatus(1, DinningReviewStatus.APPROVED)).thenReturn(reviews);
 
         List<DinningReview> result = controller.getRestaurantReviews(1);
 

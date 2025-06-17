@@ -17,6 +17,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.eduardobastos.dinningreviews.controllers.DinningReviewController;
 import com.eduardobastos.dinningreviews.models.DinningReview;
+import com.eduardobastos.dinningreviews.models.Restaurant;
 import com.eduardobastos.dinningreviews.models.User;
 import com.eduardobastos.dinningreviews.repositories.DinningReviewRepository;
 import com.eduardobastos.dinningreviews.repositories.RestaurantRepository;
@@ -33,6 +34,7 @@ class DinningReviewControllerTest {
     void setUp() {
         drr = mock(DinningReviewRepository.class);
         ur = mock(UserRepository.class);
+        rr = mock(RestaurantRepository.class);
         controller = new DinningReviewController(drr, ur, rr);
     }
 
@@ -49,10 +51,18 @@ class DinningReviewControllerTest {
     @Test
     void addReview_savesAndReturnsReview_whenUserExists() {
         DinningReview review = new DinningReview();
+        Restaurant restaurantToCreate = new Restaurant();
+        restaurantToCreate.setName("Pizza place");
+        Restaurant restaurant = new Restaurant();
+        restaurant.setId(1); // set a mock id
+        restaurant.setName("Pizza place");
+        when(rr.save(restaurantToCreate)).thenReturn(restaurant);
         review.setUserName("user1");
+        review.setRestaurantId(restaurant.getId());
         User user = new User();
         when(ur.findByUserName("user1")).thenReturn(Optional.of(user));
         when(drr.save(review)).thenReturn(review);
+        when(rr.findById(restaurant.getId())).thenReturn(Optional.of(restaurant));
 
         DinningReview result = controller.addReview(review);
 
@@ -75,11 +85,17 @@ class DinningReviewControllerTest {
     void updateReview_updatesAndReturnsReview_whenReviewAndUserExist() {
         DinningReview review = new DinningReview();
         review.setUserName("user1");
+        review.setRestaurantId(1); // Make sure restaurantId is set
         User user = new User();
         DinningReview existing = new DinningReview();
         when(drr.findById(1)).thenReturn(Optional.of(existing));
         when(ur.findByUserName("user1")).thenReturn(Optional.of(user));
         when(drr.save(review)).thenReturn(review);
+
+        // Add this line to mock restaurant lookup
+        Restaurant restaurant = new Restaurant();
+        restaurant.setId(1);
+        when(rr.findById(1)).thenReturn(Optional.of(restaurant));
 
         DinningReview result = controller.addReview(1, review);
 
