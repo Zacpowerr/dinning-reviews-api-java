@@ -102,4 +102,14 @@ public class DinningReviewController {
         throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Review does not exist");
     }
 
+    @GetMapping("/{reviewId}")
+    public DinningReview getReview(@PathVariable Integer reviewId) {
+        Optional<DinningReview> existingReviewOptional = drr.findById(reviewId);
+        if (!existingReviewOptional.isPresent()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Review does not exist.");
+        }
+        DinningReview review = existingReviewOptional.get();
+        return review;
+    }
+
 }

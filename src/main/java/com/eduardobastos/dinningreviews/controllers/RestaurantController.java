@@ -87,8 +87,10 @@ public class RestaurantController {
                     return restaurants;
                 case "diary":
                     restaurants.sort(Comparator.comparingDouble((Restaurant r) -> r.getDairyScore()).reversed());
+                    return restaurants;
                 case "peanut":
                     restaurants.sort(Comparator.comparingDouble((Restaurant r) -> r.getPeanutScore()).reversed());
+                    return restaurants;
                 default:
                     throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Allergen is not tracked");
             }
@@ -107,6 +109,17 @@ public class RestaurantController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Restaurant does not exist");
         }
         return drr.findAllByRestaurantIdAndStatus(restaurantId, DinningReviewStatus.APPROVED);
+    }
+
+    @GetMapping("/{restaurantId}")
+    public Restaurant getRestaurantById(@PathVariable Integer restaurantId) {
+        Optional<Restaurant> restaurantToUpdateOptional = rr.findById(restaurantId);
+
+        if (!restaurantToUpdateOptional.isPresent()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,
+                    "Restaurant does not exist");
+        }
+        return restaurantToUpdateOptional.get();
     }
 
 }
