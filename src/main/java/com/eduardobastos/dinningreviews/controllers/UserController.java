@@ -86,13 +86,11 @@ public class UserController {
 
     @GetMapping("/search")
     public Optional<User> findUser(@RequestParam String username) {
-
         if (!username.isEmpty()) {
             return ur.findByUserName(username);
         }
-
         throw new ResponseStatusException(
-                HttpStatus.NOT_FOUND, "User noy found"
+                HttpStatus.NOT_FOUND, "User not found"
         );
     }
 
